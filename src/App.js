@@ -9,6 +9,7 @@ function initializeReactGA() {
 }
 
 function App() {
+  initializeReactGA();
   return (
     <div className='App'>
       <header className='App-header'>
