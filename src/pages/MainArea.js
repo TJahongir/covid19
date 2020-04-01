@@ -1,4 +1,5 @@
 import React from 'react';
+import Dashboard from './Dashboard';
 import { Switch, Route } from 'react-router-dom';
 
 const MainArea = () => {
@@ -6,7 +7,7 @@ const MainArea = () => {
     <section className='mainArea'>
       <Switch>
         <Route exact path='/'>
-          <h1>Dashboard</h1>
+          <Dashboard />
         </Route>
         <Route path='/protect-yourself'>
           <h1>Protect</h1>

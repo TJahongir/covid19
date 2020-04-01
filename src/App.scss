@@ -3,9 +3,10 @@ $innerBg: #ebebeb;
 
 .main {
   display: grid;
-  grid-template-columns: 250px auto;
-  grid-template-rows: 10% auto;
+  grid-template-columns: 12% auto;
+  grid-template-rows: 60px auto;
   min-height: 100vh;
+  max-height: 100vh;
 
   .navbar,
   .search,
@@ -18,7 +19,7 @@ $innerBg: #ebebeb;
     grid-row: 1 / 3;
 
     .logo {
-      height: 89px;
+      height: 60px;
       border-bottom: 1px solid #000;
       width: 100%;
       display: flex;
@@ -27,7 +28,7 @@ $innerBg: #ebebeb;
 
       a {
         color: $textColor;
-        font-size: 36px;
+        font-size: 24px;
         text-decoration: none;
         font-weight: bold;
       }
@@ -49,9 +50,9 @@ $innerBg: #ebebeb;
 
         a {
           color: $textColor;
-          font-size: 24px;
+          font-size: 16px;
           text-decoration: none;
-          padding: 0.8rem 1rem;
+          padding: 0.8rem;
           font-weight: 300;
           text-transform: uppercase;
         }
@@ -72,11 +73,11 @@ $innerBg: #ebebeb;
       padding-left: 2rem;
       border: none;
       border-right: 1px solid $textColor;
-      font-size: 24px;
+      font-size: 16px;
       font-weight: 300;
 
       &::placeholder {
-        font-size: 24px;
+        font-size: 16px;
         font-weight: 300;
       }
     }
@@ -92,7 +93,7 @@ $innerBg: #ebebeb;
 
       p,
       a {
-        font-size: 22px;
+        font-size: 16px;
         font-weight: 300;
       }
 
@@ -107,5 +108,67 @@ $innerBg: #ebebeb;
     grid-column: 2 / 3;
     grid-row: 2 / 3;
     background-color: $innerBg;
+    padding: 30px 40px 30px 40px;
+  }
+
+  .statistics {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    padding: 20px 20px 0 20px;
+
+    .confirmed,
+    .active,
+    .rest {
+      min-height: 33%;
+      border-bottom: 1px solid $textColor;
+
+      .dataNumber {
+        font-weight: 700;
+        font-size: 36px;
+      }
+
+      .deathNum {
+        color: '#EB0A0A';
+      }
+
+      .title {
+        font-weight: 300;
+        font-size: 20px;
+      }
+    }
+
+    .confirmed,
+    .active {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+    }
+
+    .rest {
+      display: flex;
+      width: 100%;
+      border-bottom: none;
+
+      & > div {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+      }
+      .deaths {
+        border-left: 1px solid $textColor;
+        padding: 0 0 0 10px;
+      }
+    }
+
+    .deathNum {
+      color: #eb0a0a;
+    }
+
+    .recovNum {
+      color: #4fd410;
+    }
   }
 }

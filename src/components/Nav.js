@@ -13,7 +13,7 @@ const Nav = () => {
           <Link to='/'>Dashboard</Link>
         </li>
         <li>
-          <Link to='/protect-yourself'>Potect Yourself</Link>
+          <Link to='/protect-yourself'>Protect urself</Link>
         </li>
         <li>
           <Link to='/qanda'>Q&A</Link>
