@@ -20,7 +20,7 @@ const Statistics = () => {
           <p className='dataNumber recovNum'>10000</p>
         </div>
         <div className='deaths'>
-          <h3 className='title'>Deaths</h3>
+          <h3 className='title'>Died</h3>
           <p className='dataNumber deathNum'>10000</p>
         </div>
       </div>

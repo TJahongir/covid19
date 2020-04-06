@@ -1,174 +1,246 @@
+// Colors
 $textColor: #495057;
 $innerBg: #ebebeb;
+$darkBg: #e1e1e1;
+$recovClr: #4fd410;
+$deathClr: #eb0a0a;
+
+// Font Sizes
+$titleSize: 32px;
+
+// other
+$border: 1px solid $textColor;
+$minHeight: 300px;
+$maxHeight: 350px;
+$minWidth: 300px;
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
 
 .main {
-  display: grid;
-  grid-template-columns: 12% auto;
-  grid-template-rows: 60px auto;
-  min-height: 100vh;
-  max-height: 100vh;
+  height: 100%;
 
-  .navbar,
-  .search,
-  .mainArea {
-    border: 1px solid $textColor;
+  .mainTitle {
+    font-size: $titleSize;
+    text-transform: uppercase;
+    color: $textColor;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.search {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 8vh;
+  padding: 0 2rem;
+  border-bottom: $border;
+
+  .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    height: 100%;
+    border-right: $border;
+    padding-right: 2rem;
+    cursor: pointer;
+    color: $textColor;
+    font-weight: 700;
   }
 
-  .navbar {
-    grid-column: 1 / 2;
-    grid-row: 1 / 3;
+  .countryInput {
+    height: 100%;
+    width: 400px;
+    padding-left: 2rem;
+    border: none;
+    font-size: 16px;
+    font-weight: 300;
+    border-left: $border;
+    outline: none;
 
-    .logo {
-      height: 60px;
-      border-bottom: 1px solid #000;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      a {
-        color: $textColor;
-        font-size: 24px;
-        text-decoration: none;
-        font-weight: bold;
-      }
+    &::placeholder {
+      font-size: 16px;
+      font-weight: 300;
+      color: $textColor;
     }
+  }
+}
 
-    ul {
-      width: 100%;
+.dashboard {
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+  background-color: $darkBg;
+
+  .mapContainer,
+  .chart,
+  .statistics {
+    background-color: #fff;
+    min-height: $minHeight;
+    width: 100%;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 8px 2px rgba(0, 0, 0, 0.1);
+  }
+
+  .dashboardGrid {
+    display: grid;
+    grid-template-columns: repeat(300px, 4);
+    grid-template-rows: repeat(300px, 2);
+    grid-column-gap: 100px;
+    grid-row-gap: 50px;
+
+    .mapContainer {
       display: flex;
-      flex-direction: column;
 
-      li {
-        width: 100%;
-        list-style: none;
-        height: 70px;
-        border-bottom: 1px solid $textColor;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+      svg {
+        height: 100%;
+        width: 60%;
+      }
 
-        a {
-          color: $textColor;
-          font-size: 16px;
-          text-decoration: none;
+      .tableWrap {
+        margin-left: 2rem;
+        width: 40%;
+        display: block;
+        max-height: $maxHeight;
+        overflow-y: scroll;
+
+        .table {
+          width: 100%;
+          border: $border;
+
           padding: 0.8rem;
-          font-weight: 300;
-          text-transform: uppercase;
+          border-collapse: collapse;
+          border-radius: 10px;
+
+          caption {
+            padding: 0.6rem;
+            border: $border;
+          }
+
+          tr {
+            cursor: pointer;
+
+            &:hover {
+              background: $darkBg;
+            }
+
+            &:first-of-type {
+              background-color: $textColor;
+              color: white;
+              border: 1px solid white;
+            }
+          }
+
+          th,
+          td {
+            border: $border;
+            border-collapse: collapse;
+            padding: 0.8rem 1rem;
+          }
         }
       }
     }
-  }
 
-  .search {
-    grid-column: 2 / 3;
-    grid-row: 1 / 2;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    .countryInput {
-      height: 100%;
-      width: 400px;
-      padding-left: 2rem;
-      border: none;
-      border-right: 1px solid $textColor;
-      font-size: 16px;
-      font-weight: 300;
-
-      &::placeholder {
-        font-size: 16px;
-        font-weight: 300;
-      }
-    }
-
-    .author {
-      height: 100%;
-      width: 300px;
-      border-left: 1px solid $textColor;
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-      padding-left: 2rem;
-
-      p,
-      a {
-        font-size: 16px;
-        font-weight: 300;
-      }
-
-      a {
-        color: #be5f5f;
-        text-decoration: none;
-      }
-    }
-  }
-
-  .mainArea {
-    grid-column: 2 / 3;
-    grid-row: 2 / 3;
-    background-color: $innerBg;
-    padding: 30px 40px 30px 40px;
-  }
-
-  .statistics {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-    padding: 20px 20px 0 20px;
-
-    .confirmed,
-    .active,
-    .rest {
-      min-height: 33%;
-      border-bottom: 1px solid $textColor;
-
-      .dataNumber {
-        font-weight: 700;
-        font-size: 36px;
-      }
-
-      .deathNum {
-        color: '#EB0A0A';
-      }
-
-      .title {
-        font-weight: 300;
-        font-size: 20px;
-      }
-    }
-
-    .confirmed,
-    .active {
+    .statistics {
       display: flex;
       flex-direction: column;
-      justify-content: space-around;
-    }
+      justify-content: space-between;
+      height: 100%;
+      padding: 20px 20px 0 20px;
 
-    .rest {
-      display: flex;
-      width: 100%;
-      border-bottom: none;
+      .confirmed,
+      .active,
+      .rest {
+        min-height: 33%;
+        border-bottom: $border;
+        padding: 0.5rem 0;
 
-      & > div {
-        width: 50%;
+        .dataNumber {
+          font-weight: 700;
+          font-size: 36px;
+          color: $textColor;
+        }
+
+        .deathNum {
+          color: $deathClr;
+        }
+
+        .recovNum {
+          color: $recovClr;
+        }
+
+        .title {
+          font-weight: 300;
+          font-size: 20px;
+        }
+      }
+
+      .confirmed,
+      .active {
         display: flex;
         flex-direction: column;
         justify-content: space-around;
       }
-      .deaths {
-        border-left: 1px solid $textColor;
-        padding: 0 0 0 10px;
+
+      .rest {
+        display: flex;
+        width: 100%;
+        border-bottom: none;
+
+        & > div {
+          width: 50%;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+        }
+        .deaths {
+          border-left: 1px solid $textColor;
+          padding: 0 0 0 10px;
+        }
+      }
+
+      .deathNum {
+        color: #eb0a0a;
+      }
+
+      .recovNum {
+        color: $recovClr;
       }
     }
 
-    .deathNum {
-      color: #eb0a0a;
+    .mapContainer {
+      grid-column: 1 / 5;
+      grid-row: 1 / 2;
     }
 
-    .recovNum {
-      color: #4fd410;
+    .chart {
+      grid-column: 1 / 4;
+      grid-row: 2 /3;
+    }
+
+    .statistics {
+      grid-column: 4 / 5;
+      grid-row: 2 / 3;
     }
   }
 }

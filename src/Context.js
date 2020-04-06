@@ -4,14 +4,15 @@ const Context = createContext();
 
 const ContextProvider = ({ children }) => {
   const [data, setData] = useState([]);
+  const [country, setCountry] = useState('');
 
   const url = 'https://covidapi.info/api/v1/country/UZB/latest';
 
   useEffect(() => {
     fetch(url)
-      .then(res => res.json())
-      .then(data => {
-        let {result} = data;
+      .then((res) => res.json())
+      .then((data) => {
+        let { result } = data;
         setData(result);
       });
   }, []);

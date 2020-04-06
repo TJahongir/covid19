@@ -9,12 +9,34 @@ const Chart = () => {
     labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
     datasets: [
       {
-        label: '# of Active Patients',
+        label: '# of Confirmed',
+        data: [12, 11, 10, 9, 8, 7],
+        borderColor: ['#00a8cc'],
+        fill: false,
+        borderWidth: 2,
+      },
+      {
+        label: '# of Active',
         data: [12, 19, 3, 5, 2, 3],
-        backgroundColor: ['rgba(255, 99, 132, 0.2)'],
-        borderColor: ['rgba(255, 99, 132, 1)']
-      }
-    ]
+        borderColor: ['#ffd31d'],
+        fill: false,
+        borderWidth: 2,
+      },
+      {
+        label: '# of Deaths',
+        data: [12, 14, 10, 0, 7, 12],
+        borderColor: ['#eb0a0a'],
+        fill: false,
+        borderWidth: 2,
+      },
+      {
+        label: '# of Recovered',
+        data: [6, 8, 2, 0, 1, 1],
+        fill: false,
+        borderColor: ['#4fd410'],
+        borderWidth: 2,
+      },
+    ],
   };
 
   return (

@@ -1,12 +1,12 @@
 import React from 'react';
 import { ReactComponent as Map } from './world.svg';
-import TopList from './TopList';
+import Table from './Table';
 
 const WorldMap = () => {
   return (
-    <div className='map'>
+    <div className='mapContainer'>
       <Map />
-      <TopList />
+      <Table />
     </div>
   );
 };

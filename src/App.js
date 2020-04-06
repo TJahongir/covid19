@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactGA from 'react-ga';
-import MainArea from './pages/MainArea';
-import Nav from './components/Nav';
 import Search from './components/Search';
+import Dashboard from './components/Dashboard';
 import './App.scss';
 
 function initializeReactGA() {
@@ -14,9 +13,8 @@ const App = () => {
   initializeReactGA();
   return (
     <main className='main'>
-      <Nav />
       <Search />
-      <MainArea />
+      <Dashboard />
     </main>
   );
 };
