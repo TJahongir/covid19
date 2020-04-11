@@ -1,23 +1,33 @@
 import React, { createContext, useState, useEffect } from 'react';
-
 const Context = createContext();
 
 const ContextProvider = ({ children }) => {
-  const [data, setData] = useState([]);
-  const [country, setCountry] = useState('');
+  const [loading, setLoading] = useState(true);
+  const [global, setGlobal] = useState({});
+  const [countries, setCountries] = useState([]);
 
-  const url = 'https://covidapi.info/api/v1/country/UZB/latest';
+  const covidUrl = 'https://api.covid19api.com/summary';
 
   useEffect(() => {
-    fetch(url)
+    fetch(covidUrl)
       .then((res) => res.json())
       .then((data) => {
-        let { result } = data;
-        setData(result);
+        const { Global, Countries } = data;
+        setGlobal(Global);
+        setCountries(Countries);
+        setLoading(false);
       });
   }, []);
 
-  return <Context.Provider value={data}>{children}</Context.Provider>;
+  console.log(countries);
+
+  const value = {
+    loading,
+    global,
+    countries,
+  };
+
+  return <Context.Provider value={value}>{children}</Context.Provider>;
 };
 
 export { Context, ContextProvider };

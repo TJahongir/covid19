@@ -1,5 +1,5 @@
 import React from 'react';
-import { ReactComponent as Map } from './world.svg';
+import { ReactComponent as Map } from './assets/world.svg';
 import Table from './Table';
 
 const WorldMap = () => {

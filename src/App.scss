@@ -127,28 +127,39 @@ $minWidth: 300px;
         .table {
           width: 100%;
           border: $border;
-
           padding: 0.8rem;
           border-collapse: collapse;
           border-radius: 10px;
 
           caption {
-            padding: 0.6rem;
+            padding: 0.4rem;
             border: $border;
+            font-size: 0.8rem;
           }
 
           tr {
             cursor: pointer;
+            font-size: 0.8rem;
+          }
 
-            &:hover {
-              background: $darkBg;
-            }
+          // Sticki Note Try 1
 
-            &:first-of-type {
-              background-color: $textColor;
-              color: white;
-              border: 1px solid white;
-            }
+          th {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+            z-index: 2;
+          }
+
+          // End
+
+          th {
+            background-color: $textColor;
+            color: white;
+          }
+
+          .countriesTr:hover {
+            background-color: $darkBg;
           }
 
           th,
@@ -156,6 +167,7 @@ $minWidth: 300px;
             border: $border;
             border-collapse: collapse;
             padding: 0.8rem 1rem;
+            text-align: center;
           }
         }
       }
@@ -167,6 +179,7 @@ $minWidth: 300px;
       justify-content: space-between;
       height: 100%;
       padding: 20px 20px 0 20px;
+      min-width: 300px;
 
       .confirmed,
       .active,
@@ -177,7 +190,7 @@ $minWidth: 300px;
 
         .dataNumber {
           font-weight: 700;
-          font-size: 36px;
+          font-size: 1.5rem;
           color: $textColor;
         }
 
@@ -191,7 +204,7 @@ $minWidth: 300px;
 
         .title {
           font-weight: 300;
-          font-size: 20px;
+          font-size: 1rem;
         }
       }
 
@@ -242,5 +255,27 @@ $minWidth: 300px;
       grid-column: 4 / 5;
       grid-row: 2 / 3;
     }
+  }
+}
+
+.loading {
+  height: 100vh;
+  width: 100vw;
+  background-color: $textColor;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  h2 {
+    color: white;
+    text-transform: uppercase;
+    font-weight: 300;
+    letter-spacing: 8px;
+  }
+
+  .loadingIcon {
+    width: 100px;
+    height: 100px;
   }
 }

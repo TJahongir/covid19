@@ -2,6 +2,8 @@ import React from 'react';
 import ReactGA from 'react-ga';
 import Search from './components/Search';
 import Dashboard from './components/Dashboard';
+import Loading from './components/Loading';
+import { Context } from './Context';
 import './App.scss';
 
 function initializeReactGA() {
@@ -11,7 +13,10 @@ function initializeReactGA() {
 
 const App = () => {
   initializeReactGA();
-  return (
+  const { loading } = React.useContext(Context);
+  return loading ? (
+    <Loading />
+  ) : (
     <main className='main'>
       <Search />
       <Dashboard />

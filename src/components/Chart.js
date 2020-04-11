@@ -3,8 +3,11 @@ import { Line } from 'react-chartjs-2';
 import { Context } from '../Context';
 
 const Chart = () => {
-  const allData = useContext(Context);
-  console.log(allData['2020-03-31']);
+  // Bringing Down the Context
+  const { data } = useContext(Context);
+  // Data Manipulation
+
+  // Chart Data Configuration
   const chartData = {
     labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
     datasets: [
@@ -40,7 +43,7 @@ const Chart = () => {
   };
 
   return (
-    <div className='chart'>
+    <div className="chart">
       <Line data={chartData} options={{ maintainAspectRatio: false }} />
     </div>
   );
