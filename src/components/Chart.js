@@ -5,6 +5,7 @@ import { Context } from '../Context';
 const Chart = () => {
   // Bringing Down the Context
   const { data } = useContext(Context);
+  console.log(data);
   // Data Manipulation
 
   // Chart Data Configuration

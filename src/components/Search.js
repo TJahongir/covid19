@@ -1,11 +1,11 @@
 import React from 'react';
-import SearchInput from './SearchInput';
+import Contact from './Contact';
 
 const Search = () => {
   return (
-    <section className='search'>
-      <div className='logo'>COVID-19</div>
-      <SearchInput />
+    <section className="search">
+      <div className="logo">COVID-19</div>
+      <Contact />
     </section>
   );
 };

@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-const TableItem = ({ country }) => {
+const TableItem = ({
+  country: { Country, TotalDeaths, TotalConfirmed, TotalRecovered },
+}) => {
   // I was not able to Destructure the variables, any luck?
 
   return (
     <tr className="countriesTr">
-      <td>{country.Country}</td>
-      <td>{country.TotalConfirmed}</td>
-      <td>
-        {country.TotalConfirmed - country.TotalDeaths - country.TotalRecovered}
-      </td>
-      <td>{country.TotalRecovered}</td>
-      <td>{country.TotalDeaths}</td>
+      <td className="countryName">{Country}</td>
+      <td>{TotalConfirmed}</td>
+      <td>{TotalConfirmed - TotalDeaths - TotalRecovered}</td>
+      <td>{TotalRecovered}</td>
+      <td>{TotalDeaths}</td>
     </tr>
   );
 };
