@@ -19,12 +19,15 @@ const ContextProvider = ({ children }) => {
       });
   }, []);
 
+  const countSeperator = (num) => num.toLocaleString();
+
   console.log(countries);
 
   const value = {
     loading,
     global,
     countries,
+    countSeperator,
   };
 
   return <Context.Provider value={value}>{children}</Context.Provider>;

@@ -6,12 +6,12 @@ $recovClr: #4fd410;
 $deathClr: #eb0a0a;
 
 // Font Sizes
-$titleSize: 32px;
+$titleSize: 2rem;
 
 // other
 $border: 1px solid $textColor;
 $minHeight: 300px;
-$maxHeight: 350px;
+$maxHeight: 400px;
 $minWidth: 300px;
 
 /* width */
@@ -117,10 +117,13 @@ $minWidth: 300px;
 
     .mapContainer {
       display: flex;
+      justify-content: space-around;
 
-      svg {
-        height: 100%;
-        width: 60%;
+      .worldMap {
+        width: 50%;
+        height: $maxHeight;
+        cursor: pointer;
+        overflow: hidden;
       }
 
       .tableWrap {
@@ -289,3 +292,5 @@ $minWidth: 300px;
     height: 100px;
   }
 }
+
+@import 'mobile';

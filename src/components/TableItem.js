@@ -1,17 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { Context } from '../Context';
 
 const TableItem = ({
   country: { Country, TotalDeaths, TotalConfirmed, TotalRecovered },
 }) => {
-  // I was not able to Destructure the variables, any luck?
+  const { countSeperator } = useContext(Context);
 
   return (
     <tr className="countriesTr">
       <td className="countryName">{Country}</td>
-      <td>{TotalConfirmed}</td>
-      <td>{TotalConfirmed - TotalDeaths - TotalRecovered}</td>
-      <td>{TotalRecovered}</td>
-      <td>{TotalDeaths}</td>
+      <td>{countSeperator(TotalConfirmed)}</td>
+      <td>{countSeperator(TotalConfirmed - TotalDeaths - TotalRecovered)}</td>
+      <td>{countSeperator(TotalRecovered)}</td>
+      <td>{countSeperator(TotalDeaths)}</td>
     </tr>
   );
 };

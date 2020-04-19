@@ -1,0 +1,152 @@
+@media only screen and (max-width: 1336px) {
+  .dashboard {
+    .dashboardGrid {
+      grid-template-columns: repeat(200px, 4);
+      grid-template-rows: repeat(200px, 2);
+
+      .mapContainer {
+        flex-direction: column;
+
+        .worldMap {
+          width: 80%;
+          height: $maxHeight;
+          height: 100%;
+          margin: 0 auto;
+        }
+
+        .tableWrap {
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .dashboard {
+    .dashboardGrid {
+      .mapContainer {
+        .tableWrap {
+          width: 60%;
+        }
+      }
+
+      .chart {
+        grid-column: 1 / 5;
+        grid-row: 2 /3;
+      }
+
+      .statistics {
+        grid-column: 1 / 5;
+        grid-row: 3 / 4;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 820px) {
+  .dashboard {
+    .dashboardGrid {
+      grid-template-columns: repeat(200px, 4);
+      grid-template-rows: repeat(200px, 3);
+      .mapContainer {
+        .tableWrap {
+          width: 80%;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .main {
+    .mainTitle {
+      font-size: 1.5rem;
+    }
+  }
+
+  .search {
+    height: 6vh;
+
+    .logo {
+      font-size: 1.2rem;
+    }
+    .contact {
+      width: 40%;
+    }
+  }
+
+  .dashboard {
+    .dashboardGrid {
+      .mapContainer {
+        .tableWrap {
+          width: 100%;
+        }
+
+        .worldMap {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 520px) {
+  .search {
+    height: 12vh;
+    flex-direction: column;
+    padding: 0;
+
+    .logo {
+      border: none;
+      width: 100%;
+      padding-right: 0;
+      border-bottom: 1px solid $textColor;
+    }
+    .contact {
+      border: none;
+      width: 100%;
+    }
+  }
+
+  .main {
+    .mainTitle {
+      text-align: center;
+    }
+  }
+
+  .dashboard {
+    padding: 1rem;
+
+    .mapContainer,
+    .chart,
+    .statistics {
+      max-width: 480px;
+    }
+    .dashboardGrid {
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr;
+
+      .mapContainer {
+        .tableWrap {
+          margin-top: 2rem;
+          max-height: $maxHeight;
+
+          .table {
+            tr {
+              cursor: pointer;
+              font-size: 0.6rem;
+            }
+
+            th,
+            td {
+              border-collapse: collapse;
+              padding: 0.4rem;
+              text-align: center;
+            }
+          }
+        }
+      }
+    }
+  }
+}

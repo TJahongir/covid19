@@ -3,7 +3,7 @@ import { Context } from '../Context';
 
 const Statistics = () => {
   // Data
-  const { global } = useContext(Context);
+  const { global, countSeperator } = useContext(Context);
   const { TotalConfirmed, TotalDeaths, TotalRecovered } = global;
   // Data Manipulation
 
@@ -12,22 +12,24 @@ const Statistics = () => {
     <div className="statistics">
       <div className="confirmed">
         <h3 className="title">Confirmed</h3>
-        <p className="dataNumber">{TotalConfirmed}</p>
+        <p className="dataNumber">{countSeperator(TotalConfirmed)}</p>
       </div>
       <div className="active">
         <h3 className="title">Active</h3>
         <p className="dataNumber">
-          {TotalConfirmed - TotalDeaths - TotalRecovered}
+          {countSeperator(TotalConfirmed - TotalDeaths - TotalRecovered)}
         </p>
       </div>
       <div className="rest">
         <div className="recovered">
           <h3 className="title">Recovered</h3>
-          <p className="dataNumber recovNum">{TotalRecovered}</p>
+          <p className="dataNumber recovNum">
+            {countSeperator(TotalRecovered)}
+          </p>
         </div>
         <div className="deaths">
           <h3 className="title">Died</h3>
-          <p className="dataNumber deathNum">{TotalDeaths}</p>
+          <p className="dataNumber deathNum">{countSeperator(TotalDeaths)}</p>
         </div>
       </div>
     </div>
