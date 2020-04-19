@@ -48,6 +48,8 @@ const WorldMap = ({ setTooltipContent }) => {
                       default: {
                         fill: '#e1e1e1',
                         outline: 'none',
+                        stroke: '#495057',
+                        strokeWidth: '1',
                       },
                       hover: {
                         fill: '#495057',
