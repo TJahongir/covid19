@@ -5,12 +5,9 @@
       grid-template-rows: repeat(200px, 2);
 
       .mapContainer {
-        flex-direction: column;
-
         .worldMap {
-          width: 80%;
+          width: 50%;
           height: $maxHeight;
-          height: 100%;
           margin: 0 auto;
         }
 
@@ -26,6 +23,12 @@
   .dashboard {
     .dashboardGrid {
       .mapContainer {
+        flex-direction: column;
+        .worldMap {
+          width: 60%;
+          height: 100%;
+          margin: 0 auto;
+        }
         .tableWrap {
           width: 60%;
         }
@@ -50,7 +53,8 @@
       grid-template-columns: repeat(200px, 4);
       grid-template-rows: repeat(200px, 3);
       .mapContainer {
-        .tableWrap {
+        .tableWrap,
+        .worldMap {
           width: 80%;
         }
       }
