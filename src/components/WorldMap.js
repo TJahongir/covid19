@@ -10,17 +10,17 @@ import {
 const geoUrl =
   'https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json';
 
-const rounded = (num) => {
-  if (num > 1000000000) {
-    return Math.round(num / 100000000) / 10 + 'Bn';
-  } else if (num > 1000000) {
-    return Math.round(num / 100000) / 10 + 'M';
-  } else {
-    return Math.round(num / 100) / 10 + 'K';
-  }
-};
+// const rounded = (num) => {
+//   if (num > 1000000000) {
+//     return Math.round(num / 100000000) / 10 + 'Bn';
+//   } else if (num > 1000000) {
+//     return Math.round(num / 100000) / 10 + 'M';
+//   } else {
+//     return Math.round(num / 100) / 10 + 'K';
+//   }
+// };
 
-const WorldMap = ({ setTooltipContent }) => {
+const WorldMap = ({ setTooltipContent, currentChange }) => {
   return (
     <div className="mapContainer">
       <div className="worldMap">
@@ -38,11 +38,15 @@ const WorldMap = ({ setTooltipContent }) => {
                     key={geo.rsmKey}
                     geography={geo}
                     onMouseEnter={() => {
-                      const { NAME, POP_EST } = geo.properties;
-                      setTooltipContent(`${NAME} — ${rounded(POP_EST)}`);
+                      const { NAME } = geo.properties;
+                      setTooltipContent(`${NAME}`);
                     }}
                     onMouseLeave={() => {
                       setTooltipContent('');
+                    }}
+                    onClick={() => {
+                      const { NAME } = geo.properties;
+                      currentChange(NAME);
                     }}
                     style={{
                       default: {

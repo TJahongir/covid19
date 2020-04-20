@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, memo } from 'react';
 import TableItem from './TableItem';
 import { Context } from '../Context';
 
@@ -32,4 +32,4 @@ const Table = () => {
   );
 };
 
-export default Table;
+export default memo(Table);

@@ -4,37 +4,61 @@ import { Context } from '../Context';
 
 const Chart = () => {
   // Bringing Down the Context
-
+  const { dates, statistics } = useContext(Context);
+  const confirmed = [];
+  const recovered = [];
+  const deaths = [];
+  const active = [];
+  statistics.map((stats) => {
+    confirmed.push(stats.Confirmed);
+    recovered.push(stats.Recovered);
+    deaths.push(stats.Deaths);
+    active.push(stats.Active);
+  });
   // Data Manipulation
+  const chartDates =
+    dates.length > 30 ? dates.slice(dates.length - 30, dates.length) : dates;
+  const chartConfirmed =
+    confirmed.length > 30
+      ? confirmed.slice(dates.length - 30, dates.length)
+      : confirmed;
+  const chartRecovered =
+    recovered.length > 30
+      ? recovered.slice(dates.length - 30, dates.length)
+      : recovered;
+  const chartDeaths =
+    deaths.length > 30 ? deaths.slice(dates.length - 30, dates.length) : deaths;
+  const chartActive =
+    active.length > 30 ? active.slice(dates.length - 30, dates.length) : active;
 
   // Chart Data Configuration
   const chartData = {
-    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+    labels: chartDates,
     datasets: [
       {
         label: '# of Confirmed',
-        data: [12, 11, 10, 9, 8, 7],
+        data: chartConfirmed,
         borderColor: ['#00a8cc'],
         fill: false,
         borderWidth: 2,
       },
       {
         label: '# of Active',
-        data: [12, 19, 3, 5, 2, 3],
+        data: chartActive,
         borderColor: ['#ffd31d'],
         fill: false,
         borderWidth: 2,
       },
       {
         label: '# of Deaths',
-        data: [12, 14, 10, 0, 7, 12],
+        data: chartDeaths,
         borderColor: ['#eb0a0a'],
         fill: false,
         borderWidth: 2,
       },
       {
         label: '# of Recovered',
-        data: [6, 8, 2, 0, 1, 1],
+        data: chartRecovered,
         fill: false,
         borderColor: ['#4fd410'],
         borderWidth: 2,
