@@ -17,7 +17,7 @@ const App = () => {
   return loading ? (
     <Loading />
   ) : (
-    <main className='main'>
+    <main className="main">
       <Search />
       <Dashboard />
     </main>

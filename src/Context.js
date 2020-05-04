@@ -2,6 +2,7 @@ import React, { createContext, useState, useEffect } from 'react';
 const Context = createContext();
 
 const ContextProvider = ({ children }) => {
+  console.log('rendered');
   const [loading, setLoading] = useState(true);
   const [global, setGlobal] = useState({});
   const [countries, setCountries] = useState([]);
@@ -28,20 +29,26 @@ const ContextProvider = ({ children }) => {
       fetch(localCovidUrl)
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
+          const statsExport = [];
+          const datesExport = [];
           data.map((dat) => {
             const { Country, Confirmed, Deaths, Recovered, Active } = dat;
             const stats = { Country, Confirmed, Deaths, Recovered, Active };
-            setStatistics((statistics) => [...statistics, stats]);
+            // setStatistics((statistics) => [...statistics, stats]);
+            statsExport.push(stats);
             const date = dat.Date.slice(0, 10);
-            setDates((dates) => [...dates, date]);
+            // setDates((dates) => [...dates, date]);
+            datesExport.push(date);
           });
+          setDates(datesExport);
+          setStatistics(statsExport);
           setLoading(false);
           //
         });
     }
   }, [current]);
 
+  // Functions
   const countSeperator = (num) => num.toLocaleString();
 
   const currentChange = (countryName) => {

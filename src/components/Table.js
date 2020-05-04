@@ -1,10 +1,18 @@
-import React, { useContext, memo } from 'react';
+import React, { useContext } from 'react';
 import TableItem from './TableItem';
 import { Context } from '../Context';
 
 const Table = () => {
   // Bringing down the data
   const { countries } = useContext(Context);
+
+  // Sorting out Countries with no Confirmed Cases
+  const newCountries = [];
+  countries.map((country) => {
+    if (country.TotalConfirmed !== 0) {
+      newCountries.push(country);
+    }
+  });
 
   // Creating tabs
 
@@ -23,7 +31,7 @@ const Table = () => {
           </tr>
         </thead>
         <tbody>
-          {countries.map((country) => (
+          {newCountries.map((country) => (
             <TableItem country={country} key={country.CountryCode} />
           ))}
         </tbody>
@@ -32,4 +40,4 @@ const Table = () => {
   );
 };
 
-export default memo(Table);
+export default Table;
