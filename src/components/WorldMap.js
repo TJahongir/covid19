@@ -39,14 +39,20 @@ const WorldMap = ({ setTooltipContent, currentChange }) => {
                     geography={geo}
                     onMouseEnter={() => {
                       const { NAME } = geo.properties;
-                      setTooltipContent(`${NAME}`);
+                      const text = `${NAME}`;
+                      setTooltipContent(text);
                     }}
                     onMouseLeave={() => {
                       setTooltipContent('');
                     }}
                     onClick={() => {
                       const { NAME } = geo.properties;
-                      currentChange(NAME);
+                      let name = NAME.toLowerCase().split(' ').join('-');
+                      currentChange(
+                        name === 'united-states-of-america'
+                          ? (name = 'united-states')
+                          : name
+                      );
                     }}
                     style={{
                       default: {

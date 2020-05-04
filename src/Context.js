@@ -11,7 +11,7 @@ const ContextProvider = ({ children }) => {
   const [statistics, setStatistics] = useState([]);
 
   const globalCovidUrl = 'https://api.covid19api.com/summary';
-  const localCovidUrl = `https://api.covid19api.com/dayone/country/${current}`;
+  const localCovidUrl = `https://api.covid19api.com/total/dayone/country/${current}`;
 
   useEffect(() => {
     fetch(globalCovidUrl)
@@ -31,6 +31,7 @@ const ContextProvider = ({ children }) => {
         .then((data) => {
           const statsExport = [];
           const datesExport = [];
+          console.log(data);
           data.map((dat) => {
             const { Country, Confirmed, Deaths, Recovered, Active } = dat;
             const stats = { Country, Confirmed, Deaths, Recovered, Active };
